@@ -1,0 +1,2766 @@
+Développement Web (PHP OO,
+JSP, …)
+Zied ELLEUCH
+Ministère de l’Enseignement
+Supérieur et de la Recherche
+Scientifique
+2
+Introduction
+ 8 juin 1995 : PHP 1.0
+Rasmus Lerdorf
+« Personal Home Page Tools »
+Orientation Web
+Ensemble de binaires CGI en C
+ Novembre 1996 : PHP/FI 2.0
+« PHP / Forms Interpreter »
+2.0 : seule et unique version stable publiée !
+ Juin 1998 : PHP 3.0
+Andi Gutmans et Zeev Suraski
+« PHP: Hypertext Preprocessor »
+À noter : Ré-écriture complète de l'analyseur, Mécanisme
+d'extensions, Support Windows, Mac, …
+3
+Introduction
+ Mai 2000 : PHP 4.0
+Zend Engine, 1ère version
+Amélioration performances
+Fonctionnalités : sessions HTTP, ...
+Support de + de serveurs Web
+ Juillet 2004 : PHP 5.0
+Zend Engine 2
+s’inspire désormais largement du modèle de Java
+Nouveau modèle objet
+6 versions mineures, sur 10 ans !
+Migration PHP 4 ? 5 difficile
+4
+Introduction
+ Novembre 2005 : PHP 5.1
+PDO activée par défaut
+Améliorations gestion des dates
+Nouvelles fonctions
+Amélioration des performances
+ Novembre 2006 : PHP 5.2
+Nouveau gestionnaire de mémoire
+JSON, Zip, Filter, DateTime
+Suivi d'upload de fichiers
+Corrections et améliorations de sécurité
+Amélioration des performances
+ Juin 2009 : PHP 5.3
+Espaces de noms
+Fonctions anonymes, Closures
+LSB, NOWDOC, ?:, goto, mysqlnd, Garbage Collector, Phar, Intl, Fileinfo,
+Sqlite3, ...
+Amélioration des performances
+Un tournant dans l'utilisation de PHP
+5
+Introduction
+ Mars 2010 : PHP 6
+ Mars 2012 : PHP 5.4
+Traits, serveur web de test, sucre syntaxique
+Suppressions de register_globals, magic_quotes, safe_mode
+Amélioration des performances, réduction consommation mémoire
+ Juin 2013 : PHP 5.5
+Generators
+OPcache, finally, ::class, API mots de passe
+Améliorations syntaxe
+Fin support Windows XP/2003
+ Août 2014 : PHP 5.6
+Fonctions variadiques
+use pour fonctions et constantes
+Expressions scalaires constantes
+**, surcharge d'opérateurs (classes internes), phpdbg
+6
+Introduction
+Une nouvelle version majeure !
+PHP, espace, 7 (décembre 2015)
+ Gestion d'erreurs
+ Type hints scalaires
+ Types de retour
+ Typage strict
+ Combined Comparison (Spaceship) Operator
+ Classes anonymes
+ Amélioration de assert()
+ Améliorations sécurité
+ JSON
+ Etc.
+7
+Introduction
+Une nouvelle version majeure !
+PHP, espace, 7 ? Facebook a publié en 2011 HipHop Virtual Machine dit HHVM, une
+machine virtuelle permettant de pré-compiler le code PHP en bytecode à
+la manière de Java (JIT Compiler). ? En 2014, Facebook sort le langage Hack, s’exécutant grâce à HHVM et
+apportant des fonctionnalités comme le typage fort, des classes
+paramétrables, une API de collections plus riche et cohérente, des
+traitements asynchrones et davantage de sécurité avec l’extension XHP. ? Le framework PHP Phalcon (extension PECL de PHP), propose Zephir
+(Zend Engine PHp Intermediate) (https ://github.com/phalcon/zephir) qui
+permet la création d’extensions rapides en PHP (codées en C) de manière
+simplifiée (sans écrire du C directement). ? La société Zend a réagi face à HHVM en accélérant le développement de
+la nouvelle mouture de PHP 7 et en améliorant ses performances avec un
+mécanisme de compilation AOT (Ahead of Time)
+8
+Introduction
+Framework : un framework est un espace de travail modulaire :
+ensemble de bibliothèques, d’outils et de conventions permettant le
+développement d’applications (on traduit par cadre d’applications
+ou cadriciel).
+Les frameworks connues : Symfony, Zend, Laravel, Phalcon,
+CakePHP, Yii, Slim, etc.
+Les CMS (Content Management Systems ou Systèmes de Gestion
+de Contenus) connus : Wordpress, Joomla, Drupal, Prestashop,
+Magento, etc.
++300 millions de sites environ sont réalisés à travers le monde en
+PHP
+9
+Introduction : installation php
+Tout informaticien doit savoir ce que LAMP veut dire
+LAMP
+? Linux
+? Apache
+? MySQL
+? PHP
+Et WAMP pour Window et MAMP pour Macs
+10
+Introduction : installation Apache
+C’est un serveur web open-source basé sur le protocole HTTP
+et fonctionnant sous Linux et sous Windows
+ C’est le serveur web le plus utilisé (environ 70 % des
+serveurs web utilisent Apache actuellement)
+ La première version est sortie en décembre 1995.
+ La dernière version est Apache 2.4.27 (11 juillet 2017)
+11
+Introduction : installation Apache
+12
+Introduction : installation Apache
+A cet écran, nous allons configurer le nom de domaine, le nom du
+serveur ainsi que l'adresse e-mail de l'administrateur du serveur.
+Network Domain : Nom de domaine du serveur,
+localhost correspondant à l'hôte local dans le cas présent.
+Server Name : Nom du serveur, ici, nous allons mettre
+127.0.0.1 qui correspond à l'ip interne de la machine.
+Administrator's Email Address :
+l'adresse e-mail de l'administrateur
+en l'occurrence vous.
+13
+Introduction : installation Apache
+For All Users, on Port 80, as Service : cette option permet
+d'installer apache pour tout les comptes utilisateurs en utilisant
+le port 80 (port utilisé par défaut pour un serveur web) en tant
+que service (le service est utilisé par Windows XP ou 2000).
+Only for the Current User, on Port 8080, when started
+Manually : cette option permet d'installer apache pour
+l'utilisateur courant (qui procède à l'installation) en utilisant le
+port 8080 et avec un démarrage manuel. Cette dernière est
+recommandée si vous ne souhaitez pas mettre en production
+votre serveur web, mais que vous l'utilisez dans un objectif de
+développement web.
+14
+Introduction : installation Apache
+15
+Introduction : installation Apache
+Une fois l'installation terminée, nous avons l'écran ci-dessous qui
+s'affiche.
+16
+Introduction : installation Apache
+A présent, notre serveur est opérationnel, d'ailleurs, si
+l'installation était standard, les services sont déjà en action.
+Par ailleurs, si vous regardez dans le menu Démarrer /
+Programmes, vous devriez avoir le menu suivant :
+Vous aurez pu aussi remarquer la présence de Apache Service
+Monitor dans votre systray (à côté l'heure) qui est représenté
+par l'icône ci-dessous :
+17
+Introduction : installation Apache
+Pour cela, on ouvre notre navigateur favori (Firefox par
+exemple), puis on tape dans la barre d'adresse :
+http://localhost/ ou bien http://127.0.0.1/
+Si lors de l'installation vous avez choisi l'option « only for
+the Current User, on Port 8080, when started Manually »,
+vous devez ajouter :8080 à la fin de l'url comme ceci :
+http://localhost:8080/ ou bien http://127.0.0.1:8080/
+18
+PHP : Conventions de codage
+Elles servent à mettre en place des normes de manière à ce
+qu’un programmeur puisse relire et comprendre facilement le
+code produit par d’autres programmeurs.
+ certaines conventions sont dictées par le langage
+ d’autres sont établies par les programmeurs et concernent :
+? le nommage des variables et fonctions
+? la dispositions des blocs (if-then-else, while, ...)
+? le nommage des paramètres, etc.
+19
+PHP : Conventions de codage
+ les noms doivent être courts et explicites
+ les noms de variables et fonctions ne contiennent que des
+lettres minuscules et le symbole souligné « _ »
+ un nom de variable est mis au pluriel s’il contient plusieurs
+éléments
+ une méthode qui retourne un attribut d’une classe doit
+commencer par get_
+ une méthode qui fixe un attribut d’une classe doit
+commencer par set_
+Conventions à appliquer
+20
+PHP : Conventions de codage
+ on supprime le plus possible les espaces inutiles
+ on déclare les variables au moment où on les utilise
+ on sort des boucles les calculs inutiles ou redondants
+(refactoring)
+ on documente les fonctions, méthodes et variables /
+attributs
+Conventions à appliquer
+21
+PHP
+22
+PHP : commentaire
+<?php
+// commentaire sur une ligne
+# aussi un commentaire sur une ligne
+/*
+* commentaire sur
+* deux lignes
+*/
+/**
+* commentaire pour la documentation
+*/
+?>
+NB : il ne faut pas mettre de ligne blanche entre le
+commentaire de documentation et la variable ou la fonction à
+laquelle il se rapporte.
+23
+PHP : commentaire
+On peut introduire des tag (mots-clés) au sein des
+commentaires pour la documentation qui seront
+ensuite utilisés pour générer la documentation au
+format html :
+? @author Author Name nom de l’auteur
+? @copyright Copyright Information
+? @deprecated [version|information]
+? @license url [license]
+? @link url [description]
+? @version description
+? @param datatype $variablename description
+? @return datatype description
+? @see reference
+? @todo description
+? @var datatype variables de classes
+24
+PHP : syntaxe de base
+ Bases de la syntaxe héritées du C et du Perl
+ Il y a quatre moyens pour passer du mode HTML au mode PHP :
+ <?php
+… ?>
+ <?
+… ?> activation de la directive de configuration short_open_tag du
+php.ini
+
+<script language
+="php"> </script
+> supprimée de PHP 7.0 et +
+ <% … %> <%= $variable; %> supprimée de PHP 7.0 et +
+ Chaque possibilité est valable selon le fichier de configuration et
+l'option de compilation utilisée.
+ Séparateur d’instructions « ; »
+ Le tag de fin (?>) implique la fin d'une instruction, et donc ajoute
+implicitement un point virgule.
+<?php echo "Bonjour les ingénieurs";?>
+<?php echo "Bonjour les ingénieurs"?>
+25
+PHP : type de données
+ PHP permet la manipulation d’un certain nombre de types de
+données différents dans lesquels on distingue :
+ Les types scalaires de base :
+Entier (integer)
+Les nombres réels (double ou float)
+Les chaines de caractère (string)
+Les booléens (le type boolean qui contient les valeurs true
+ou false)
+ Les types composés :
+Tableaux (le type array)
+Objets (le type object)
+ Les types spéciaux :
+Type resource
+Type null
+26
+PHP : les variables
+ Une variable est auto-déclarée lors de sa première affectation.
+ Son nom commence par $.
+Les espaces sont interdits
+Le tiret - , les caractères de ponctuation sont interdits
+Il ne peut y avoir de chiffre après le $
+Éviter les caractères accentués
+Sensible à la casse
+ Exemple :
+Scalaires: $a = 2;
+Chaines ('' ou "") : $chaine = "hello";
+Tableaux : $tab = array(1=>'hello'); $tab[2] = 3;
+Objets $obj = new User();
+27
+PHP : les variables
+<?php
+$x = 20;
+$x = 'This is a string';
+?>
+<?php
+$x = 20;
+$y = '10'; // a string
+$z = $x + $y; // $y is converted to an integer
+echo $z; // 30
+?>
+<?php
+$x = 20;
+$y = '10 jours'; // a string
+$z = $x + $y; // $y is converted to an integer
+echo $z; // 30 avec un message d’erreur
+?>
+28
+PHP : les variables
+<?php
+$x = 20;
+$y = '10'; // a string
+$z = $x + (int)$y; // $y cast to an integer
+echo $z; // 30
+?>
+<?php
+$x = 20;
+$y = '10 jours'; // a string
+$z = $x + (int)$y; // $y cast to an integer
+echo $z; // 30
+?>
+29
+PHP : les variables
+ Les préfixes autorisés sont :
+
+(int), (integer) : modification en integer
+
+(bool), (boolean) : modification en boolean
+
+(float), (double), (real) : modification en float
+
+(string) : modification en string
+
+(array) : modification en array
+
+(object) : modification en object
+30
+PHP : les variables
+<?php
+$int = 10; // integer
+$str = 'this is a string'; // string
+$bool = true; // boolean
+$d = 3.14; // float
+echo gettype($int), '<br>';
+echo gettype($str) , '<br>';
+echo gettype($bool), '<br>';
+echo gettype($d), '<br>';
+var_dump($d);
+?> gettype : pour des raisons historiques, "double" est
+retournée lorsqu'une valeur de type float est fournie, au
+lieu de la chaîne "float"
+31
+PHP : les variables
+ Pas de typage explicite, le type d’une variable est déterminé par
+la valeur qu’on lui affecte
+ Fonctions utiles pour les variables
+boolean isset($var) // tester si la variable existe ou non
+boolean empty($var) // tester si la variable est vide ou non
+boolean is_integer($var) ou is_int($var)
+boolean is_double($var)
+boolean is_float($var)
+boolean is_string($var)
+boolean is_bool($var)
+boolean is_array($var)
+boolean is_object($var)
+boolean is_null($var)
+string gettype($arg)
+settype($var, $type)
+unset($var);
+32
+PHP : Portée des variables (scopes)
+ Variables locales :
+Les variables sont locales au sein d’une fonction ;
+<?php
+function foo()
+{
+$bar = 10;
+$bar += 20;
+return $bar;
+}
+echo foo();
+?>
+<?php
+function foo()
+{
+$bar = 10;
+$bar += 20;
+return $bar;
+}
+echo foo();
+echo $bar;
+?>
+33
+PHP : Portée des variables (scopes)
+ Variables locales :
+Les variables sont locales au sein d’une fonction ;
+<?php
+$a = 1; /* portée globale */
+function test()
+{
+echo $a; /* portée locale */
+}
+test();
+?>
+34
+PHP : Portée des variables (scopes)
+ Variables globales :
+ La plupart des variables ont une portée qui s’étend sur
+l’intégralité du script PHP, elles sont globales ;
+ Deux façons existent pour accéder à une variable globale au
+sein d’un bloc :
+déclarer la variable comme global au sein du bloc,
+utiliser le tableau associatif $GLOBALS avec comme clé le
+nom de la variable globale.
+35
+PHP : Portée des variables (scopes)
+ Variables globales :
+<?php
+$a = 1;
+$b = 2;
+function somme() {
+global $a, $b;
+$b = $a + $b;
+}
+somme();
+echo $b;
+?>
+<?php
+$a = 1;
+$b = 2;
+function somme() {
+$GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
+}
+somme();
+echo $b;
+?>
+36
+PHP : Portée des variables (scopes)
+ Variables globales :
+<?php
+global $x=2;
+$a = 1;
+$b = 2;
+function somme2() {
+global $a=1, $b;
+$b = $a + $b;
+}
+somme2();
+echo $b;
+?>
+37
+PHP : Portée des variables (scopes)
+ Variables globales :
+<?php
+$a=1;$b;
+function test_global() {
+var_dump($GLOBALS);
+}
+test_global();
+?>
+38
+PHP : Portée des variables (scopes)
+ Variables globales :
+39
+PHP : Portée des variables (scopes)
+ Variables globales :
+40
+PHP : Portée des variables (scopes)
+ Variables globales :
+<?php
+$a=1; global $b;
+function test_global() {
+var_dump($GLOBALS);
+}
+test_global();
+?>
+<?php
+$a=1;
+settype($b,"integer");
+global $b;
+function test_global() {
+var_dump($GLOBALS);
+}
+test_global();
+?>
+41
+PHP : Portée des variables (scopes)
+ Variables statiques :
+Variable locale qui ne perd pas sa valeur à chaque fois que le
+bloc est exécuté ;
+Une variable déclarée statique est initialisée seulement lors de
+la première utilisation
+Déclaré par l’attribut static : static $toto ;
+Très utile pour la création de fonctions récursives ;
+42
+PHP : Portée des variables (scopes)
+ Variables statiques :
+<?php
+function set_counter()
+{
+static $counter = 0;
+$counter++;
+echo $counter . '<br/>';
+}
+set_counter(); // 1
+set_counter(); # 2
+set_counter(); // 3
+?>
+<?php
+function test_static()
+{
+static $count = 0;
+$count++;
+echo $count.'<br>';
+if ($count < 10) {
+test_static();
+}
+$count--;
+echo $count.'<br>';
+}
+test_static();
+?>
+43
+PHP : Portée des variables (scopes)
+ Variables statiques :
+<?php
+function test_static()
+{
+static $count;
+$count =0;
+$count++;
+echo $count.'<br>';
+if ($count < 10) {
+test_static();
+}
+$count--;
+echo $count.'<br>';
+}
+test_static();
+?>
+44
+PHP : Portée des variables (scopes)
+ Variables statiques :
+45
+PHP : Portée des variables (scopes)
+ Variables statiques :
+<?php
+function test_static()
+{
+static $count;
+if(!isset($count))
+$count=0;
+$count++;
+echo $count.'<br>';
+if ($count < 10) {
+test_static();
+}
+$count--;
+echo $count.'<br>';
+}
+test_static();
+?>
+46
+PHP : Portée des variables (scopes)
+ Variables dynamiques :
+Prend la valeur d’une variable et l’utilise comme nom d’une
+autre variable ;
+<?php
+$a = 'bonjour';
+$$a = 'monde';
+echo
+"$a ${$a}
+";
+echo '<bR>';
+echo $$a;
+echo '<bR>';
+echo $bonjour;
+?> <?php for ($i=1;$i<=5;$i++)
+{
+${'a'.$i}=$i;
+}
+echo $a2;
+?>
+47
+PHP : Portée des variables (scopes)
+ Variables extérieures :
+Toutes les variables transmises par les méthodes POST ou
+GET sont accessibles via les tableaux associatifs
+$HTTP_POST_VARS et $HTTP_GET_VARS
+Les variables d’environnement sont accessibles comme des
+variables PHP classiques (ex : $HOME) ou par les fonctions
+getenv() et putenv()
+ Affectation par valeur : $b=$a
+ Affectation par (référence) variable : $c = &$a
+48
+PHP : Portée des variables (scopes)
+49
+PHP : les constantes
+ PHP définit certaines constantes et propose un mécanisme
+pour en définir d’autres durant l’exécution du script ;
+ On définit une constante en utilisant la fonction define() ;
+ Les constantes prédéfinies
+NULL, PHP_VERSION , PHP_OS , TRUE et FALSE ,
+E_ERROR, __FILE__, __LINE__ , __DIR__
+50
+PHP : les constantes
+<?php
+define("CONSTANT", "Bonjour le monde.");
+echo CONSTANT; // affiche "Bonjour le monde."
+echo Constant; // affiche "Constant" et émet une alerte
+define
+("GREETING", "Salut toi.", true);
+echo GREETING; // affiche "Salut toi."
+echo Greeting; // affiche "Salut toi."
+// Fonctionne depuis PHP 7
+define
+('ANIMALS', array
+(
+'chien',
+'chat',
+'oiseaux'
+));
+echo ANIMALS[1]; // affiche "chat"
+?>
+bool define ( string $name , mixed $value [, bool $case_insensitive = false ] )
+51
+PHP : les constantes
+bool define ( string $name , mixed $value [, bool $case_insensitive = false ] )
+52
+PHP : les constantes
+<?php
+define
+('MAX_SIZE', 2014);
+if
+(defined
+('MAX_SIZE')) {
+echo "The constant MAX_SIZE defined";
+} else
+{
+echo "The constant MAX_SIZE has not yet defined yet";
+}
+?>
+<?php
+echo __FILE__.'<br>';
+echo __DIR__.'<br>';
+echo __LINE__.'<br>';
+echo PHP_VERSION.'<br>';
+echo PHP_OS.'<br>';
+function test() { echo __FUNCTION__.'<br>‘; }
+test();
+?>
+53
+PHP : les opérateurs
+ Les opérateurs arithmétiques :
+addition : $a + $b,
+soustraction : $a - $b,
+multiplication : $a * $b,
+division : $a / $b,
+modulo (reste de la division entière) : $a % $b.
+ Les opérateurs sur les bits :
+ET bit à bit : $a & $b,
+OU bit à bit : $a | $b,
+OU-Exclusif/XOR bit à bit : $a ˆ $b,
+NON bit à bit : ˜$a,
+décalage à droite de $b bits : $a > > $b,
+décalage à gauche de $b bits : $a < < $b.
+54
+PHP : les opérateurs
+ Les opérateurs d’affectation :
+l’opérateur d’affectation le plus simple est le signe =,
+la valeur retournée par une expression d’assignement est la
+valeur assignée,
+Exp : $a = ($b = 4) + 3 ; # $a vaut 7 et $b vaut 4
+l’opérateur ++ est équivalent à += 1,
+l’opérateur -- est équivalent à -= 1,
+Exp : $toto = 0 ;
+echo ++$toto ; # affiche 1
+echo $toto++ ; # affiche
+echo $toto ; # affiche 2
+55
+PHP : les structures conditionnelles
+<?php
+$x = 20;
+if($x > 0){
+echo
+"$x is greater than zero";
+}elseif($x == 0){
+echo
+"$x is zero";
+}else
+{
+echo
+"$x is less than zero";
+}
+?>
+ if :
+<?php $x = 10; ?>
+<?php if($x == 10) : ?>
+<
+p
+>This is HTML code inside if statement</
+p
+>
+<?php endif; ?>
+le principe est de remplacer l'accolade d'ouverture par deux points (:) et l'accolade
+de fermeture par, endif;
+56
+PHP : les structures conditionnelles
+ if : Syntaxe alternative
+<?php $x = 10; ?>
+<?php if($x == 10) : ?>
+<
+p
+>This is HTML code inside if statement</
+p
+>
+<?php endif; ?>
+Syntaxe alternative : le principe est
+de remplacer l’accolade d’ouverture
+par deux points (:) et l'accolade de
+fermeture par, endif;
+<?php
+$a=2;
+if ($a == 5):
+echo "a égale 5";
+echo "...";
+elseif ($a == 6):
+echo "a égale 6";
+echo "!!!";
+else:
+echo "a ne vaut ni 5 ni 6";
+endif;
+?>
+57
+PHP : les structures conditionnelles
+<?php
+$v = 1;
+$r = (1 == $v) ? 'Yes' : 'No'; // $r is set to 'Yes'
+$r = (3 == $v) ? 'Yes' : 'No'; // $r is set to 'No‘
+echo (1 == $v) ? 'Yes' : 'No'; // 'Yes' will be printed
+// and since PHP 5.3
+$v = 'My Value';
+$r = ($v) ?: 'No Value'; // $r is set to 'My Value' because $v is evaluated to TRUE
+?>
+ if :
+58
+PHP : les structures conditionnelles
+<?php
+switch ($i) {
+case 0:
+echo "i égal 0";
+break;
+case 1:
+echo "i égal 1";
+break;
+case 2:
+echo "i égal 2";
+break;
+default:
+echo "i n'est ni égal à 2, ni à 1, ni à 0.";
+}
+?>
+ switch :
+59
+PHP : les structures conditionnelles
+<?php
+switch ($i):
+case 0:
+echo "i égal 0";
+break;
+case 1:
+echo "i égal 1";
+break;
+case 2:
+echo "i égal 2";
+break;
+default:
+echo "i n'est ni égal à 2, ni à 1, ni à 0";
+endswitch;
+?>
+ switch :
+60
+PHP : les structures conditionnelles
+<?php
+$val=""
+;
+switch($val)
+{
+case 'leffe'
+;
+case 'grimbergen'
+;
+case 'guinness'
+;
+echo 'Bon choix'
+;
+break
+;
+default
+;
+echo 'Merci de faire un choix...'
+;
+break
+;
+}
+?>
+ switch :
+61
+PHP : les structures itératives
+<?php
+for ($i = 1; $i < 5; $i++) {
+echo $i . '<br/>';
+}
+?>
+<?php
+for(;;){
+$i = rand(1,5);
+echo $i . '<br/>';
+if($i == 2)
+break;
+}
+?>
+ for :
+62
+PHP : les structures itératives
+<?php
+define
+('MAX',10);
+$counter = 1;
+while($counter <= MAX){
+echo "The current value of the counter is {$counter}<br/>";
+$counter++;
+}
+?>
+<?php
+$i = 10;
+do {
+echo $i . '<br/>';
+$i--;
+} while ($i > 0);
+?>
+ while et do-while :
+63
+PHP : les fonctions
+ Sans typage, comme les variables
+ Passage de paramètres :
+par défaut (par valeur)
+passage par référence possible avec &
+ Syntaxe de déclaration
+<?php
+function nom_de_la_fonction($parameter1, $parameter2,...){
+// corps de la fonction
+}
+?>
+64
+PHP : les fonctions
+ Les valeurs sont renvoyées en utilisant une instruction de
+retour optionnelle ;
+ Tous les types de variables peuvent être renvoyés (tableaux
+et objets compris) ;
+ Une variable locale déclarée à l’intérieur d’une fonction
+n’est vue qu’à l’intérieure de celle-ci ;
+ Une variable locale déclarée à l’extérieure de la fonction
+n’est pas vue à l’intérieure de la fonction.
+<?php
+$a=10;
+function affichage()
+{
+$a=5;
+echo $a;
+}
+affichage();
+?>
+<?php
+$a=10;
+function affichage()
+{
+$a=5;
+$b=20;
+echo $a;
+echo $GLOBALS['a'];
+}
+affichage();
+echo $b;
+?>
+65
+PHP : les fonctions
+ Des informations peuvent être passées à une fonction en
+utilisant un tableau d’arguments séparés par une virgule ;
+ Un argument peut être une variable ou une constante ;
+ PHP supporte :
+le passage d’arguments par valeur (méthode par défaut) ;
+le passage d’arguments par référence ;
+les valeurs par défaut des arguments.
+66
+PHP : les fonctions
+<?php
+function ajoute_deux($nombre)
+{
+$nombre+=2;
+echo $nombre."<br>";
+}
+$nombre=3;
+ajoute_deux($nombre); #affiche 5
+echo $nombre."<br>"; #affiche 3
+?>
+<?php
+function retranche_deux(&$nombre)
+{
+$nombre-=2;
+echo $nombre."<br>";
+}
+function ajoute_deux(&$nombre)
+{
+$nombre+=2;
+echo $nombre."<br>";
+}
+$numero=3;
+ajoute_deux($numero); #affiche 5
+echo $numero."<br>"; #affiche 5
+retranche_deux($numero); #affiche 3
+echo $numero."<br>"; #affiche 3
+?>
+67
+PHP : les fonctions
+<?php
+function default_param($message="assez bien"
+)
+{
+echo "Vous avez {$message} travaille<br>";
+}
+default_param
+("mal");
+default_param();
+?>
+68
+PHP : les fonctions
+<?php
+function affichage()
+{
+$num = func_num_args();
+echo $num;
+}
+affichage(1,2,3);
+?>
+<?php
+function find_max($a, $b, $c){
+// find max of two arguments
+function max($x, $y){
+return $x > $y ? $x : $y;
+}
+return max
+(max($a, $b),$c);
+}
+echo find_max(3,20,7);
+?>
+69
+PHP : les fonctions
+//PHP 7
+<?php
+function welcome
+(string $name)
+{
+echo $name;
+}
+welcome(100);
+?>
+<?php
+declare(strict_types=1);
+function welcome($name):string
+{
+return $name;
+}
+echo welcome(90.99);
+?>
+//PHP 7
+<?php
+function welcome
+(string $name)
+{
+echo $name;
+}
+welcome(99.99);
+?>
+70
+PHP : les fonctions
+71
+PHP : Fonctions de chaînes de caractères
+ Affichage de chaînes de caractère : echo et print
+ Concaténation avec le point « . »
+ Longueur d’une chaîne : strlen
+<?php
+$chaine1= "Bonjour";
+$chaine2= "FIA2";
+echo $chaine1.' '.$chaine2;
+?>
+<?php
+$chaine1= "On étudie le PHP OO.";
+echo strlen($chaine1);
+?>
+<?php
+echo strlen("é");
+?>
+<?php
+// the Arabic (Hello) string below is: 59 bytes and 32
+characters
+;"! ??? ???? ???? ????? ????? ??????" = utf8$
+var_export( strlen($utf8) ); // 59
+echo "<br>";
+var_export( mb_strlen($utf8, 'utf8') ); // 32
+?>
+72
+PHP : Fonctions de chaînes de caractères
+ Enlever les blancs du début et de la fin de la chaine : trim
+73
+PHP : Fonctions de chaînes de caractères
+<?php
+echo "je m'appele "mohamed"";
+?>
+<?php
+echo "je m'appele \"mohamed\"";
+?>
+ Caractère d’échappement « \ »
+74
+PHP : Fonctions de chaînes de caractères
+<?php
+$nom="L'algorithmique";
+echo $nom."<br>";
+$nom="L\'algorithmique";
+echo $nom."<br>";
+$nom='L\'algorithmique';
+echo $nom."<br>";
+?>
+ Caractère d’échappement « \ »
+75
+PHP : Fonctions de chaînes de caractères
+ strpos($chaine, $motif[, $debut]) : retourne la position de la
+première occurrence d’un motif dans une chaine à partir de la
+position $debut .
+La position de début est optionnelle
+Si la sous chaine n’est pas trouvé elle retourne false
+ stripos : même syntaxe et rôle mais ne tient pas compte des
+majuscule et minuscule
+ strrpos : fait la recherche de droite à gauche
+ strrripos : recherche de droite à gauche sans tenir compte des
+majuscules et minuscule
+ strstr ($chaine, $motif[, $avant=false]): permet de trouver la
+première occurrence d'un motif. Sa seule différence avec
+strpos() est qu'elle retourne le reste de la chaîne à partir de la
+position détectée
+ strnatcmp($str1,$str2) : comparaison de 2
+76
+PHP : Fonctions de chaînes de caractères
+ substr($chaine,$debut[,$longueur]) : retourne la sous chaine qui
+commence a partir de la position $debut ayant la longueur
+$longueur
+ str_replace($chaine1, $chaine2,$texte[,$nbfois]) : cherche dans
+$texte toutes les occurrences de $chaine1 et les remplace par
+$chaine2
+ strtoupper($chaine) : conversion en majuscules
+ strtolower($chaine) : conversion en minuscules
+ ucfirst($chaine) : met le premier caractère en majuscule et retourne
+la chaine
+ ucwords($chaine) : met en majuscule la première lettre de tous les
+mots et retourne la chaine
+77
+PHP : Les tableaux
+ Création à l’aide de la fonction array()
+<?php
+$tab=array();
+?>
+ Les éléments d’un même tableau peuvent être de type différent
+(tableau hétérogène).
+ PHP permet d’utiliser deux types de tableau : les tableaux
+indicés (ordinaires comme ceux du langage C) et les tableaux
+associatifs.
+ Il n’est pas nécessaire de déclarer un tableau avant son
+utilisation
+ Il existe deux types de tableaux :
+Tableaux indicés
+Tableaux associatifs
+78
+PHP : Les tableaux
+ Tableaux indicés
+<?php
+$tab[0] = "sousse" ; $tab[1] = "sfax" ; $tab[2] = "bizerte";
+echo "Je vis à $tab[1]. <BR>" ;
+?>
+les indices du tableau commencent à zéro
+La variable $tab est un tableau par le simple fait que son nom est
+suivi de crochets et d’un indice.
+On peut ne pas spécifier les indices
+$couleur = array("bleu", "rouge" );
+<?php
+$tab[] = "sousse" ; $tab[] = "sfax" ; $tab[] = "bizerte";
+echo "Je vis à $tab[1]. <BR>" ;
+?>
+79
+PHP : Les tableaux
+ Tableaux associatifs
+fait correspondre des valeurs à des clés. L’accès à un élément du
+tableau se fait par une clé.
+La syntaxe est similaire, mais on remplace l’indice numérique par
+un terme (de type string).
+<?php
+$tab['nom'] = "Ben Foulen";
+$tab['prenom'] = "Foulen";
+$tab["age"] = 22;
+echo
+"$tab[age] <BR>" ;
+?>
+Il est possible de déclarer un tableau associatif et l’initialiser de la
+manière suivante: $tableau = array(clé => valeur, ….)
+80
+PHP : Les tableaux
+<?php
+$language = array
+('English', 'French', 'German');
+?>
+<?php
+$colors = array
+('red'=>'#FF0000','green'=>'#00FF00','blue'=>'0000FF');
+?>
+<?php
+$colors = [
+'red' => '#FF0000',
+'green' => '#00FF00',
+'blue' => '#0000FF',
+];
+var_dump($color);
+?>
+81
+PHP : Les tableaux
+ Affichage
+Boucle for
+<?php
+$language = array
+('English', 'French', 'German');
+for($i=0; $i<count($language); $i++)
+{
+echo $language[$i]."<br>";
+}
+?>
+Boucle foreach
+<?php
+$colors = array
+('red'=>'#FF0000','green'=>'#00FF00','blue'=>'0000FF');
+foreach($colors as $key=>$value)
+{
+echo $key." ".$value."<br>";
+}
+?>
+82
+PHP : Les tableaux
+ Tableaux à deux dimensions
+c'est un tableau dont chaque élément est lui-même un tableau.
+$tableau=array(array());
+<?php
+$fruits = array
+(
+"fruits" => array
+("a" => "orange", "b" => "banana", "c" => "apple"),
+"numbers" => array(1, 2, 3, 4, 5, 6),
+"holes" => array
+("first", 5 => "second", "third"
+)
+);
+?>
+83
+PHP : Les tableaux
+ Fonctions pour les tableaux
+Nom Rôle
+count($tab) Retourne un entier : nombre d'éléments du tableau
+sizeof($tab) Retourne un entier : nombre d'éléments du tableau
+explode($separateur, $chaine) Transforme une chaine en tableau en fonction du séparateur. Retourne un tableau
+implode($str,$tab) Opération inverse : Transforme un tableau en chaine. Retourne une chaine
+max($tab) retourne la plus grande valeur d'un tableau
+min($tab) retourne la plus petite valeur du tableau
+shuffle($tab) change aléatoirement l'ordre des éléments
+84
+PHP : Les tableaux
+ Parcours d’un tableau
+Nom Rôle
+current($tab) valeur de l'élément courant (endroit où est le pointeur), NB. pos($tab) est un alias de current
+each($tab) clé et valeur pour l'endroit où est le pointeur sur le tableau (fait avancer de 1 le pointeur)
+end($tab) place le pointeur sur le dernier élément du tableau
+key($tab) Index/clé de l'élément courant
+next($tab) avance le pointeur d'une case, retourne sa valeur
+prev($tab) recule d'une case et retourne sa valeur
+reset($tab) Positionne le pointeur sur le premier élément du tableau
+85
+PHP : Les tableaux
+ Tri d’un tableau
+Nom Rôle
+arsort($tab) Trie par ordre décroissant, l'index associé se déplace avec les valeurs
+asort($tab) Trie par ordre croissant, l'index associé se déplace avec les valeurs
+booleen ksort($tab) Trie le tableau par ses clés
+86
+PHP : Date
+ Fonction date() permet de retourner la date sous forme de chaine
+de caractère
+ format « d-m-y »
+ timestamp : nombre de secondes écoulées depuis 1970
+ pour construire un timestamp on utilise la fonction mktime
+mktime($heure,$minute,$seconde,$mois,$jour,$annee)
+string date ( string $format [, int $timestamp = time() ] ) 
+87
+PHP : Date
+format description Exemple
+a "am" ou "pm" minuscules pm
+A "AM" ou "PM" majuscules PM
+d jour du mois 01 /20
+D jour de la semaine en 3 lettres mon
+F nom du mois Janvier
+h heure (format 12 heures avec 0 en entete ) 12
+H heure (format 24 heures avec 0 en entete ) 08
+g heure (format 12 heures sans 0 en entete) 4
+G heure (format 24 heures sans 0 en entete) 10
+i minutes 44
+j jours du mois ( pas de 0 en entete) 3
+m mois de l'année ( 0 en entete ) 04
+M Mois, en trois lettres, en anglais Jan à Dec
+n Mois sans les zéros initiaux 1..12
+s secondes 30
+y année à 2 chiffres 02
+Y année en 4 chiffres 2002 
+88
+PHP : Inclusion de bibliothèques ou de fichiers
+ Faire appel à un fichier (bibliothèque) à n’importe quel
+emplacement d’un script php
+ Ecrire une fonction dans un fichier puis l’appeler dans un autre
+fichier
+ Définir des constantes dans un fichier puis l’utiliser dans un
+autre
+ Mettre dans un fichier une suite d’instruction qui sont utilisées
+dans plusieurs fichiers (instruction de connexion à la base de
+données)
+ L’extension des fichiers à inclure est généralement
+.inc.php mais ce n’est pas obligatoire
+89
+PHP : Inclusion de bibliothèques ou de fichiers
+ L’appel des fichiers à inclure se fait à travers les fonctions
+include() et require()
+ L’appel d’un fichier revient à inclure le contenu du fichier dans le
+fichier appelant
+ PHP recopiera le contenu du fichier inclus dans l’emplacement où
+il a été appelé
+ Si erreur
+ include() génère une erreur de niveau warning et continue
+l’exécution de la page
+ require() génère une erreur fatale et arrête le script
+90
+PHP : Inclusion de bibliothèques ou de fichiers
+<!-- vars.php -->
+<?php
+$couleur = 'verte';
+$fruit = 'pomme';
+?>
+<!-- test.php -->
+<?php
+echo "Une $fruit $couleur
+"; // Une
+include 'vars.php'; // include ('vars.php');
+echo "Une $fruit $couleur
+"; // Une pomme verte
+?>
+91
+PHP : Inclusion de bibliothèques ou de fichiers
+<?php
+function foo()
+{
+global $couleur;
+include 'vars.php';
+echo "Une $fruit $couleur
+";
+}
+/* vars.php est dans le contexte de foo()
+* donc $fruit n'est pas disponible hors de *
+* cette fonction. $couleur l'est, car c'est *
+* une variable globale */
+foo(); // Une pomme verte
+echo "Une $fruit $couleur
+"; // Une verte
+?>
+92
+PHP : Inclusion de bibliothèques ou de fichiers
+ include_once() et require_once() permettent de s’assurer que le
+fichier a été inclut une seule fois dans un fichier
+ Si test1.inc.php contient la ligne include (test2.inc.php);
+ Si le fichier accueil.php contient les 2 lignes suivantes
+ include_once(test1.inc.php);
+ include_once(test2.inc.php); //n’est pas inclut car son contenu
+existe déjà dans test1.inc.php
+<?php
+include_once "a.php"; // ceci inclut le fichier a.php
+include_once "A.php"; // ceci inclut encore le fichier a.php! (uniquement en PHP 4)
+?>
+93
+PHP : goto
+<?php
+goto a;
+echo 'Foo';
+a:
+echo 'Bar';
+?>
+<?php
+for($i=0,$j=50; $i<100; $i++) {
+while($j--) {
+if($j==17) goto end;
+}
+}
+echo "i = $i";
+end:
+echo 'j hit 17';
+?>
+<?php
+goto a;
+echo 'Foo';
+a: echo 'Bar';
+goto A;
+echo 'Foo';
+A: echo 'Baz';
+?>
+94
+PHP : Les cookies
+ Qu'est-ce qu'un cookie ?
+ Fichier texte créé par un script et stocké sur l’ordinateur des
+visiteurs d’un site (65 Ko maxi)
+ Permet de conserver des renseignements utiles sur chaque
+utilisateur, et de les réutiliser lors de sa prochaine visite
+ Personnaliser les autres pages du site par un message personnel
+comportant par exemple son nom, la date de sa dernière visite,
+ou tout autre particularité.
+ Ceci n'est possible que si le visiteur a entré lui-même ses
+informations dans un formulaire sur le site
+ Pour des raisons de sécurité, les cookies ne peuvent être lus que
+par des pages issues du serveur qui les a créés
+95
+PHP : Les cookies
+ Principe
+ Le nombre de cookies qui peuvent être définis sur le même poste
+client est limité à 20 et la taille de chacun est limitée à 4ko.
+ Un navigateur peut stocker un maximum de 300 cookies
+ La date d’expiration des cookies est définie de manière explicite
+par le serveur web chargé de les mettre en place.
+ Permet de conserver des renseignements utiles sur chaque
+utilisateur, et de les réutiliser lors de sa prochaine visite
+ Les cookies disponibles sont importés par PHP sous forme de
+variables identifiées sous les noms utilisés par ces cookies
+ La variable globale du serveur $_COOKIES enregistre tous les
+cookies qui ont été définis
+96
+PHP : Les cookies
+ Exemple d’application des cookies
+ Mémorisation des paniers dans les applications d’e-commerce
+ Identification des utilisateurs
+ Des pages web personnalisées
+ Afficher des menus personnalisés
+ Afficher des pages adaptées aux utilisateurs en fonction de
+leurs visites précédentes
+97
+PHP : Les cookies
+bool setcookie ( string name [, string value [, int expire [, string path [, string domain [,
+bool secure [, bool httponly]]]]]] )
+ Création de cookie
+ L’écriture de cookie est possible grâce à la fonction setcookie()
+ Il faut appeler cette fonction dès le début du script avant l’envoi
+d’aucune autre information de la part du serveur vers le poste
+client.
+ Lorsqu'un cookie est créé depuis une page, il ne devient
+disponible qu'à partir de la page suivante car il faut que le
+navigateur envoie le cookie au serveur.
+ Un cookie dont la date d'expiration n'est pas précisée est
+enregistré dans la mémoire vive de l'ordinateur et non sur le
+disque dur. Il sera effacé à la fermeture du navigateur.
+98
+PHP : Les cookies
+ name : nom de la variable qui va stocker l’information sur le poste
+client et qui sera utilisée pour récupérer cette information dans la
+page qui lira le cookie. (obligatoire)
+ value : valeur stockée dans la variable.
+ expire : la date à laquelle le cookie ne sera plus lisible et sera
+effacé du poste client (exprimée en ms)
+ path : définit la destination (incluant les sous-répertoire) à laquelle
+le navigateur doit envoyer le cookie.
+ domain : le nom du domaine à partir duquel peuvent être lus les
+cookies. ($SERVER_NAME )
+ secure : un booleen qui vaut false si la connexion n’est pas
+sécurisée, sinon, il vaut true pour une connexion sécurisée HTTPS
+bool setcookie ( string name [, string value [, int expire [, string path [, string domain [,
+bool secure [, bool httponly]]]]]] ) 
+99
+PHP : Les cookies
+<?php
+// Affichage du contenu du cookie
+if(isset($_COOKIE['pseudo']))
+echo "Votre pseudo est :".$_COOKIE['pseudo']."<br>";
+?>
+<?php
+setcookie('pseudo', 'fia2', time() + 1000*6, null, null, false, true); // On écrit un
+cookie
+echo $_COOKIE['pseudo'];
+var_dump($_COOKIE);
+?>
+100
+PHP : Les cookies
+ Lecture de cookies
+ Les cookies sont accessibles dans le tableau associatif
+$_COOKIE
+ Si celui-ci visite une des pages PHP de ce même domaine dont
+le chemin est inclut dans le paramètre chemin (si le chemin est /
+le cookie est valide pour toutes les pages de ce site).
+ Il faut d’abord vérifier l’existence des variables dont les noms
+et les valeurs ont été définis lors de la création du cookie.
+ Cette vérification s’effectue grâce à la fonction
+isset($_COOKIE[‘name’]) qui renvoie true si la variable $name
+existe et false sinon.
+101
+PHP : Les cookies
+<?php
+// Définition des structures de données
+$nombreLancesDe = 0; // Nombre de lances de dé
+$listeSerialisee = ''; // Chaine serialisee du cookie
+$listeLancesDe = array(); // Tableau des valeurs de lancés de dé
+// Test de l'existence du cookie
+if(!empty($_COOKIE['lancesDe']))
+{
+// On récupère les valeurs dans $listeLancesDe par désérialisation
+$listeSerialisee = $_COOKIE['lancesDe'];
+$listeLancesDe = unserialize($listeSerialisee);
+}
+// On lance une nouvelle fois le dé
+$listeLancesDe[] = rand(1,6);
+// On sérialise le tableau et on crée le cookie
+$listeSerialisee = serialize($listeLancesDe);
+setcookie('lancesDe', $listeSerialisee, time()+3600*24);
+// On calcule le nombre de lancés de dé
+$nombreLancesDe = count($listeLancesDe);
+?>
+ Stocker des types complexes
+102
+PHP : Les cookies
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"
+>
+<html xmlns
+="http://www.w3.org/1999/xhtml" xml:lang
+="fr"
+>
+<head> <title
+>Simulation de lancés d'un dé !</title> </head
+>
+<body
+>
+<
+p
+> Vous avez lancé <?php echo $nombreLancesDe; ?> fois le dé : </
+p
+>
+<?php
+if($nombreLancesDe > 0)
+{
+echo '<ul>';
+// On affiche le contenu du tableau désérialisé
+foreach($listeLancesDe as $numeroLance => $valeurLance)
+{
+echo '<li>Lancé n#', ($numeroLance+1) ,' : ', $valeurLance ,'</li>';
+}
+echo '</ul>';
+}
+?>
+</body
+>
+</html
+>
+103
+PHP : Les cookies
+ Écriture de plusieurs variables par un cookie
+ Utilisation de la fonction compact() pour transformer les
+variables en un tableau
+ Convertir le tableau en une chaîne de caractère à l’aide de la
+fonction implode()
+ Affecter la chaîne créée à l’attribut « nom_cookie »
+104
+PHP : Les cookies
+<?php
+$nom="Ben Foulen";
+$age= 22;
+$color="pink";
+$array=compact("nom","age","color");
+var_dump($array);
+$string=implode('&',$array);
+echo $string;
+setcookie('description', $string, time() + 60*60, null, null, false, true);
+var_dump($_COOKIE);
+?>
+105
+PHP : Les cookies
+ Supprimer un cookie
+ Il suffit de renvoyer le cookie grâce à la fonction setcookie() en
+spécifiant simplement l'argument NomDuCookie
+<?php
+setcookie('pseudo');
+?>
+ Le code précédent demande au navigateur d'effacer le cookie
+mais ne supprime pas la valeur présente dans le tableau
+$_COOKIE : unset($_COOKIE['pseudo']);
+ Une autre méthode consiste à envoyer un cookie dont la date
+d'expiration est passée :
+<?php
+setcookie('pseudo','', time() -1);
+?>
+106
+PHP : Les sessions
+ Une session est un enchaînement de pages web qui nécessite une
+mémoire des opérations effectuées et réalisées par le même
+individu
+ Transaction avec sa banque pour effectuer des opérations
+ Transaction commerciale avec un site marchand
+ Conserver plusieurs données lors d’une session
+ Ranger les données de la session sur le serveur
+ Sécuriser le passage des données vers le serveur en
+ donnant un identifiant à la session
+ cryptant l’identifiant
+ Disposer de plusieurs sessions et donner un nom à chacune
+107
+PHP : Les sessions
+ Une session est donc une période entre un début et une fin d'une
+activité
+ Par extension, on associe à une session un ensemble de valeurs
+définies de manière transparente pour le visiteur et que le serveur
+conserve de page en page, comme un Cookie
+ Les données d'une session sont cependant stockées sur le serveur
+et non chez le client, ce qui l'empêche de pouvoir les modifier
+manuellement, comme il peut le faire pour un cookie
+108
+PHP : Les sessions
+ PHP propose un mécanisme de sessions permettant de sauvegarder
+sur le serveur les variables qui vont être réutilisées dans chacune
+des pages
+ Lorsque l’utilisateur revient sur le serveur, le navigateur fournit un
+identifiant unique qui permet de reconnaître l’utilisateur et de
+retrouver ses variables. Cet identifiant est le sessionID, qui doit
+donc persister pendant l’enchaînement des pages.
+109
+PHP : Les sessions
+ Une session est, comme son nom l'indique, une session de
+navigation
+ Elle commence donc lors de l'accès à une page et se termine à la
+fermeture du navigateur du client
+ Une fois la session terminée, elle est détruite ainsi que toutes les
+données qu'elle contient
+ Elle ne doit donc contenir que des données temporaires
+ Cependant, la session possède aussi un délai d'expiration
+ Celui-ci peut être modifié dans la configuration du serveur
+(directive session.gc_maxlifetime), mais vaut généralement une
+trentaine de minutes
+ Une fois ce délai dépassé, la session est supprimée
+La durée de vie d'une session
+110
+PHP : Les sessions
+ Pour pouvoir utiliser la fonctionnalité de session de PHP, il faut
+lancer le moteur de session en utilisant la fonction session_start()
+ Cette fonction doit être en mesure d'envoyer des entêtes HTTP
+ Pour cela : aucune donnée ne doit donc avoir été transmise au
+navigateur
+ Vous devez placer ce code au tout début de votre script pour éviter
+que des choses soient transmises avant
+Initialiser une session
+111
+PHP : Les sessions
+ Une session porte par défaut le nom « PHPSESSID »
+ C'est lui qui sera utilisé comme nom de session
+ Pour le changer, utiliser la fonction session_name()
+<?php
+session_name('nom_de_session');
+session_start();
+?>
+ Ce code va donc charger une session avec l'identifiant provenant
+du cookie ou du paramètre GET portant le nom : nom_de_session
+Nommer une session
+112
+PHP : Les sessions
+ PHP détecte automatiquement l'identifiant à utiliser
+ Cependant, on peut avoir besoin de le changer manuellement, si on
+veut développer un système alternatif pour passer l'identifiant de
+session entre les pages
+ Pour définir manuellement l'identifiant de session, on utilise la
+fonction session_id()
+Donner un id à la session
+113
+PHP : Les sessions
+ Les données de la session sont très facilement accessibles au
+travers d'un simple tableau PHP
+ On utilise le tableau super-global $_SESSION
+ Tout ce qui est stocké à l'intérieur est sauvegardé et accessible
+depuis toutes les pages PHP utilisant les sessions
+Ecriture et lecture des données dans la session
+114
+PHP : Les sessions
+ Les variables de sessions sont stockées dans le tableau superglobal : $_SESSION
+Ecriture des données dans la session
+<?php
+session_start(); // Création de la session
+$_SESSION['prenom'] = 'Mohamed'; // Sauvegarde dans la
+session créée de la variable "prenom"
+?>
+115
+PHP : Les sessions
+ Quand on démarre une session avec session_start(), le tableau
+super-global $_SESSION est automatiquement initialisé avec les
+variables de la session
+ S'il contenait quelque chose, ce contenu n'est plus disponible après
+Lecture des données dans la session
+<?php
+echo $_SESSION['prenom'];
+?>
+116
+PHP : Les sessions
+ Utiliser sur le tableau $_SESSION la fonction isset() qui renvoie
+vrai si la variable passée en argument existe réellement
+Lecture des données dans la session
+<?php
+if (isset($_SESSION['prenom'])) {
+echo 'La variable prenom est déjà enregistrée !';
+// On est certain de pouvoir y accéder ici
+} else {
+echo 'La variable prenom n\'est pas enregistrée !';
+}
+?>
+117
+PHP : Les sessions
+ Le formulaire permet, par une page, de s’authentifier
+ L'accès à toutes les autres pages dépend de cette authentification
+ Voici les étapes à suivre :
+ Initialisez votre session
+ Initialisez vos variables
+ Affichez votre formulaire, ou effectuez son traitement : dans un
+cas, mes variables de session seront vides, dans l'autre, elles ne
+seront remplies que si le traitement retourne un résultat correct
+ Enfin, si le formulaire de connexion est validé, affichez un lien
+pour passer à la page suivante en « mode connecté »
+ Autrement, pas d'accès aux autres pages
+Authentification
+118
+PHP : Les sessions
+ Utiliser unset() qui prend en paramètre la variable à détruire
+Supprimer une variable d’une session
+<?php
+unset($_SESSION['prenom']); // La variable de session
+"prenom" a été supprimée,
+?>
+119
+PHP : Les sessions
+ Utiliser session_destroy() qui ne prend aucun paramètre et qui
+renvoie vrai en cas de succès et faux en cas d'erreur
+Détruire une session
+<?php
+if (session_destroy()) {
+echo 'Session détruite !';
+} else {
+echo 'Erreur : impossible de détruire la session !';
+}
+?>
+120
+PHP : Les sessions
+ Il est aussi possible de détruire toutes les variables de session, ce
+qui permet de conserver votre session
+ Il suffit tout simplement de réinitialiser le tableau $_SESSION
+ Il ne faut jamais utiliser unset() directement sur $_SESSION, cela
+rendrait impossible l'accès aux variables de la session courante
+jusqu'à sa fermeture
+Détruire toutes les variables d’une session
+<?php
+$_SESSION = array(); // $_SESSION est désormais un
+tableau vide, toutes les variables de session ont été supprimées
+?>
+121
+PHP : Les sessions
+ Il est impossible d'ouvrir simultanément plusieurs sessions
+ Cependant, on peut tout à fait ouvrir plusieurs sessions l'une après
+l'autre
+ Dans ce cas, il faut
+ fermer la première session sans la détruire, grâce à
+session_write_close()
+ puis assigner les nouveaux session_name
+ et enfin ouvrir la nouvelle session avec session_start()
+Sessions multiple
+122
+PHP : Les sessions
+Sessions multiple
+<?php
+session_name('utilisateur');
+session_start(); // Création de la première session
+// Utilisation de la première session
+session_write_close(); // Fermeture de la première session, ses
+données sont sauvegardées.
+session_name('admin'); // Indication du nom de la seconde session
+session_start(); // Ouverture de la seconde session
+// Utilisation de la seconde session.
+?>
+123
+PHP : Les sessions
+Sessions multiple
+ Une fois la session fermée, il est toujours possible d'accéder
+en lecture (les modifications ne seront pas prises en compte)
+aux variables de l'ancienne session
+ $_SESSION ne sera vidé et re-rempli qu'au prochain appel à
+session_start()
+124
+PHP : Formulaire
+ Balise
+<form name="test" action="script.php" method="post">
+</form>
+ Attributs :
+ Name : nom du formulaire
+ Action : page destination absolue
+http://localhost/fia/contact.php) ou relative URL (/contact.php)
+ Method : méthode d’envoi du formulaire POST/GET
+ Get :
+ Contenu des variables transférées au niveau de l’URL
+ Information limitée à 256 caractères
+ Post :
+ Données transférées au niveau de la requête (masquées)
+ Pas de limites au niveau de l’information envoyée
+125
+PHP : Formulaire
+ Champs texte ou mot de passe
+ $_GET[‘name’]/ $_POST[‘name’]/$_REQUEST[‘name’]
+ Zone de texte
+ $_GET[‘name’]/ $_POST[‘name’]/$_REQUEST[‘name’]
+ nl2br() : ajoute des retours à la ligne
+ Cases à cocher/ Bouton radio/ liste choix unique
+ Case non cochée -> non envoyée (isset(‘caseName’)=false)
+ Case cochée : $_GET[‘caseName’] /$_POST[‘caseName’]
+/$_REQUEST[‘caseName’]
+126
+PHP : Formulaire
+ Liste des choix multiple
+<form name="test" action="<?php echo
+htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="GET">
+<select name="formats" multiple="multiple">
+<option value="image">image</option>
+<option value="flash">flash</option>
+<option value="video">video</option>
+<option value="HTML5">HTML5</option>
+</select>
+<input type="submit" name="Envoyer" value="Envoyer">
+</form>
+127
+PHP : Formulaire
+ Liste des choix multiple
+<?php
+if(isset($_GET['formats']))
+{
+var_dump($_GET['formats']);
+}
+?>
+128
+PHP : Formulaire
+ Liste des choix multiple
+<form name="test" action="<?php echo
+htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="GET">
+<select name="formats[]" multiple="multiple">
+<option value="image">image</option>
+<option value="flash">flash</option>
+<option value="video">video</option>
+<option value="HTML5">HTML5</option>
+</select>
+<input type="submit" name="Envoyer" value="Envoyer">
+</form>
+129
+PHP : MySQL
+130
+PHP : MySQL
+ Un champ est une donnée, définie par un type, une longueur
+et des contraintes.
+ Un enregistrement est une ensemble de champs.
+ Une table contient des enregistrements et des champs.
+ Un schéma (nom ANSI d'une base de données) est un
+ensemble de tables.
+ Le serveur peut contenir plusieurs schémas.
+131
+PHP : MySQL
+1 - Connexion au MySQL
+2 - Sélection d’une base
+3 - Envoi d’une requête
+4 - Récupération et utilisation du résultat
+5 - Fermeture de la connexion
+ Avec PHP, vous pouvez vous connecter et manipuler des bases
+de données
+ MySQL est le système de base de données le plus populaire
+utilisé avec PHP
+ Interfaçage avec une base de données MySQL : Cinque étape
+132
+PHP : MySQL - Pour se connecter à une base depuis php, il faut spécifier un nom de
+serveur, un nom d’utilisateur, un mot de passe et un nom de base. - Les fonctions de connexion : - mysql_connect($server,$user,$password) : permet de se connecter au
+serveur $server en tant qu’utilisateur $user avec le mot de passe
+$password, retourne l’identifiant de connexion si succès, FALSE sinon - mysql_select_db($base[,$id]) : permet de choisir la base $base, retourne
+TRUE en cas de succès, sinon FALSE - mysql_close([$id]) : permet de fermer la connexion - mysql_pconnect : idem que mysql_connect sauf que la connexion est
+persistante, il n’y a donc pas besoin de rouvrir la connexion à chaque script
+qui travaille sur la même base. - Les identifiants de connexion ne sont pas nécessaires si on ne se connecte
+qu’à une seule base à la fois, ils permettent seulement de lever toute
+ambiguïté en cas de connexions multiples.
+133
+PHP : MySQLi
+L'extension MySQLi
+ PHP 5 et versions ultérieures peuvent fonctionner avec une base
+de données MySQL à l'aide :
+ L’extension MySQLi (le « i » signifie une amélioration :
+improved)
+ PDO (PHP Data Objects)
+ Les versions antérieures de PHP utilisé l'extension MySQL.
+Cependant, cette extension a été dépréciée en 2012.
+ L'extension mysqli doit être activée dans php.ini (windows)
+134
+PHP : MySQLi
+ Les deux MySQLi et PDO ont leurs avantages :
+ PDO travaillera sur 12 systèmes de base de données, alors que
+MySQLi ne fonctionne qu'avec les bases de données MySQL.
+ Donc, si vous devez passer votre projet d'utiliser une autre
+base de données, PDO rend le processus facile. Il vous suffit
+de changer la chaîne de connexion et quelques requêtes. Avec
+MySQLi, vous devrez réécrire tout le code - requêtes incluses.
+ Les deux sont orienté objet, mais MySQLi offre également une
+API de procédure.
+135
+PHP : MySQLi
+<!-- config.php -->
+<?php
+$host = 'fia2'; $login = 'rooot'; $password = ''; $database = 'etudiants';
+?>
+<?php
+require_once 'config.php';
+$link = mysqli_connect ($host,$login,$password)
+or die("Echec de connexion. ".mysqli_connect_error());
+?>
+136
+PHP : MySQLi
+<?php
+require_once 'config.php';
+$link = @mysqli_connect ($host,$login,$password)
+or die("Echec de connexion. ".mysqli_connect_error());
+?>
+<!-- config.php -->
+<?php
+$host = 'fia2'; $login = 'rooot'; $password = ''; $database = 'etudiants';
+?>
+137
+PHP : MySQLi orientée objet
+<?php
+require_once 'config.php';
+$link=new mysqli($host,$login,$password) ;
+if($link->connect_errno
+)
+{
+die
+("Echec de connexion. ".$link->connect_error);
+}
+?>
+<!-- config.php -->
+<?php
+$host = 'fia2'; $login = 'rooot'; $password = ''; $database = 'etudiants';
+?>
+138
+PHP : MySQLi Déconnexion
+<?php
+$link->close();
+?>
+Orientée objet
+<?php
+mysqli_close($link);
+?>
+Procédurale
+139
+PHP : MySQLi
+<?php
+require_once 'config.php';
+$link=@mysqli_connect($host,$login,$password) or die("Echec de
+connection. ".mysqli_connect_error());
+mysqli_select_db($link, $database)
+or die("Echec de sélection de la base. ". mysqli_error($link));
+$link->close();
+?>
+<!-- config.php -->
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiant';
+?>
+140
+PHP : MySQLi insertion
+<?php
+require_once 'config.php';
+$link=new mysqli($host,$login,$password) ;
+if($link->connect_errno
+)
+{ die
+("Echec de connection. ".$link->connect_error); }
+mysqli_select_db($link, $database) or die
+("Echec de selection de la base.
+".mysqli_error($link));
+$requete="insert into etudiant (nom,prenom,ville) values
+('Ben Foulen','Foulen','Tunis'),
+('Ben Foulen1','Foulen1','Sousse'),
+('Ben Foulen2','Foulen2','Sfax')";
+if
+(mysqli_query($link, $requete)) {
+echo "Insertion avec succees";
+} else
+{
+echo "Erreur: " . $requete. "<br>" . mysqli_error($link);
+}
+$link->close();
+?>
+141
+PHP : MySQLi Obtenir ID Inséré
+<?php
+require_once 'config.php';
+$link=new mysqli($host,$login,$password) ;
+if($link->connect_errno
+)
+{ die
+("Echec de connection. ".$link->connect_error); }
+mysqli_select_db($link, $database) or die
+("Echec de selection de la base.
+".mysqli_error($link));
+$requete="insert into etudiant (nom,prenom,ville) values('Ben
+Foulen3','Foulen3','Tunis')";
+if
+(mysqli_query($link, $requete)) {
+$last_id = mysqli_insert_id($link);
+echo "Insertion avec succees avec Identifiant :".$last_id;
+} else
+{
+echo "Erreur: " . $requete. "<br>" . mysqli_error($link);
+}
+$link->close();
+?>
+142
+PHP : MySQLi requête préparée
+<?php
+require_once 'config.php';
+$link=new mysqli($host,$login,$password) ;
+if($link->connect_errno)
+{ die("Echec de connection. ".$link->connect_error); }
+mysqli_select_db($link, $database) or die("Echec de selection de la base. ".mysqli_error($link));
+$stmt = $link->prepare("insert into etudiant (nom,prenom,ville) values(?,?,?)");
+$stmt->bind_param("sss", $nom, $prenom, $ville);
+$nom = "Ben Foulen8"; $prenom = "Foulen8"; $ville = "Sfax";
+$stmt->execute();
+$nom = "Ben Foulen9"; $prenom = "Foulen9"; $ville = "Sousse";
+$stmt->execute();
+$link->close();
+?>
+Une instruction préparée est une fonction utilisée pour exécuter les mêmes (ou
+similaires) des instructions SQL à plusieurs reprises avec une grande efficacité.
+143
+PHP : MySQLi requête préparée
+<?php
+$stmt->bind_param
+("sss", $nom, $prenom, $ville);
+?>
+Cette fonction lie les paramètres à la requête SQL et la base de
+données et indique quels sont le type des paramètres.
+L'argument « sss » répertorie les types de données que les
+paramètres sont. Le caractère s mysql indique que le paramètre est
+une chaîne.
+L’argument peut être l'un des quatre types :
+i - nombre entier
+d - le double
+s - chaîne
+b - blob
+144
+PHP : MySQLi insertion multiple
+<?php
+require_once 'config.php';
+$link=new mysqli($host,$login,$password) ;
+if($link->connect_errno
+)
+{ die
+("Echec de connection. ".$link->connect_error); }
+mysqli_select_db($link, $database) or die
+("Echec de selection de la base.
+".mysqli_error($link));
+$requetes="insert into etudiant (nom,prenom,ville) values('Ben Foulen5','Foulen5','Tunis');";
+$requetes.="insert into etudiant (nom,prenom,ville) values('Ben Foulen6','Foulen6','Gafsa');";
+$requetes.="insert into etudiant (nom,prenom,ville) values('Ben Foulen7','Foulen7','Tozeur')";
+if
+(mysqli_multi_query($link, $requetes)) {
+echo "Insertion avec succee";
+} else {
+echo "Erreur: " . $requete . "<br>" . mysqli_error($link);
+}
+$link->close();
+?>
+145
+PHP : MySQLi sélection des données
+ 3 fonctions pour récupérer le résultat d'une requête :
+ mysqli_fetch_assoc() : Récupère le résultat sous forme de
+tableau associatif
+ mysqli_fetch_row() : Récupère le résultat sous forme de
+tableau indexé
+ mysqli_fetch_object() : Récupère le résultat sous forme
+d'objet
+146
+PHP : MySQLi sélection des données
+<?php
+require_once 'config.php';
+$link=new mysqli($host,$login,$password) ;
+if($link->connect_errno
+)
+{ die
+("Echec de connection. ".$link->connect_error); }
+mysqli_select_db($link, $database) or die
+("Echec de selection de la base.
+".mysqli_error($link));
+$requete="select * from etudiant";
+$result=mysqli_query($link, $requete);
+if
+(mysqli_num_rows($result)>0) {
+while($row = mysqli_fetch_assoc($result)) {
+echo $row["id"]. " - " . $row["prenom"]. " " . $row["nom"]. " habite : " .$row["ville"].
+"<br>";
+}
+} else { echo "La table est vide"; }
+$link->close();
+?>
+147
+PHP : MySQLi sélection des données
+<?php
+require_once 'config.php';
+$link=new mysqli($host,$login,$password) ;
+if($link->connect_errno
+)
+{ die
+("Echec de connection. ".$link->connect_error); }
+mysqli_select_db($link, $database) or die
+("Echec de selection de la base.
+".mysqli_error($link));
+$requete="select id, nom as name, prenom as lastname, ville from etudiant";
+$result=mysqli_query($link, $requete);
+if
+(mysqli_num_rows($result)>0) {
+while($row = mysqli_fetch_assoc($result)) {
+echo $row["id"]. " - " . $row["lastname"]. " " . $row["name"]. " habite : "
+.$row["ville"]. "<br>";
+}
+} else { echo "La table est vide"; }
+$link->close();
+?>
+148
+PHP : MySQLi sélection des données
+<?php
+require_once 'config.php';
+$link=new mysqli($host,$login,$password) ;
+if($link->connect_errno
+)
+{ die
+("Echec de connection. ".$link->connect_error); }
+mysqli_select_db($link, $database) or die
+("Echec de selection de la base.
+".mysqli_error($link));
+$requete="select * from etudiant";
+$result=mysqli_query($link, $requete);
+if
+(mysqli_num_rows($result)>0) {
+while($row = mysqli_fetch_row($result)) {
+echo $row[
+0]. " - " . $row[2]. " " . $row[1]. " habite : " .$row[3]. "<br>";
+}
+} else {
+echo "La table est vide";
+}
+$link->close();
+?>
+149
+PHP : MySQLi sélection des données
+<?php
+require_once 'config.php';
+$link=new mysqli($host,$login,$password) ;
+if($link->connect_errno
+)
+{ die
+("Echec de connection. ".$link->connect_error); }
+mysqli_select_db($link, $database) or die
+("Echec de selection de la base.
+".mysqli_error($link));
+$requete="select * from etudiant";
+$result=mysqli_query($link, $requete);
+if
+(mysqli_num_rows($result)>0) {
+while($row = mysqli_fetch_object($result)) {
+echo $row->id. " - " . $row->prenom. " " . $row->nom. " habite : " .$row->ville.
+"<br>";
+}
+} else { echo "La table est vide"; }
+$link->close();
+?>
+150
+PHP : PostgreSQL
+<?php
+// Connexion, sélection de la base de données
+$dbconn = pg_connect("host=localhost dbname=publishing user=www
+password=foo")
+or die('Connexion impossible : ' . pg_last_error());
+// Exécution de la requête SQL
+$query = 'SELECT * FROM authors';
+$result = pg_query($query) or die('Échec de la requête : ' . pg_last_error());
+while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {//or
+pg_fetch_assoc($result);
+foreach ($line as $col_value) {
+echo $col_value;
+}
+}
+// Libère le résultat
+pg_free_result($result);
+// Ferme la connexion
+pg_close($dbconn);
+?>
+151
+PHP : PDO
+ PDO est une interface d’accès aux bases de données
+ PDO n’est pas un système d’abstraction complet
+ Il ne manipule pas les requêtes.
+ Il met à disposition des classes et des fonctions communes à
+un ensemble de SGBD.
+ Si certains SGBD ne disposent pas de certaines
+fonctionnalités (gestion des transactions, requêtes
+paramétrées, etc.), il les simule.
+ PDO fonctionne avec un ensemble d’extensions
+ Une extension PDO de base qui définit l'interface commune.
+ Une extension Driver PDO relative à chaque SGBD que l’on
+veut gérer.
+152
+PHP : PDO
+153
+PHP : PDO driver
+Nom Description
+CUBRID (PDO) Fonctions CUBRID (PDO_CUBRID)
+MS SQL Server (PDO) Microsoft SQL Server et Fonctions Sybase
+(PDO_DBLIB)
+Firebird (PDO) Fonctions Firebird (PDO_FIREBIRD)
+IBM (PDO) Fonctions IBM (PDO_IBM)
+Informix (PDO) Fonctions Informix (PDO_INFORMIX)
+MySQL (PDO) Fonctions MySQL (PDO_MYSQL)
+MS SQL Server (PDO) Fonctions Microsoft SQL Server (PDO_SQLSRV)
+Oracle (PDO) Fonctions Oracle (PDO_OCI)
+ODBC et DB2 (PDO) Fonctions ODBC et DB2 (PDO_ODBC)
+PostgreSQL (PDO) Fonctions PostgreSQL (PDO_PGSQL)
+SQLite (PDO) Fonctions SQLite (PDO_SQLITE)
+4D (PDO)
+154
+PHP : PDO driver
+<?php
+var_dump(PDO::getAvailableDrivers());
+?>
+155
+PHP : PDO
+ La classe PDO gère l’accès aux SGBD ainsi que les
+fonctionnalités de base :
+ Connexions
+ Lancement des requêtes
+ La classe PDOStatement gère une liste de résultats.
+ La classe PDOException est une classe d'exception
+personnalisée interne pour PDO.
+156
+PHP : PDO
+•PDO — La classe PDO
+•PDO::beginTransaction — Démarre une transaction
+•PDO::commit — Valide une transaction
+•PDO::__construct — Crée une instance PDO qui représente une connexion à la base
+•PDO::errorCode — Retourne le SQLSTATE associé avec la dernière opération sur la base de
+données
+•PDO::errorInfo — Retourne les informations associées à l’erreur lors de la dernière opération
+sur la base de données
+•PDO::exec — Exécute une requête SQL et retourne le nombre de lignes affectées
+•PDO::getAttribute — Récupère un attribut d'une connexion à une base de données
+•PDO::getAvailableDrivers — Retourne la liste des pilotes PDO disponibles
+•PDO::inTransaction — Vérifie si nous sommes dans une transaction
+•PDO::lastInsertId — Retourne l’identifiant de la dernière ligne insérée ou la valeur d'une
+séquence
+•PDO::prepare — Prépare une requête à l’exécution et retourne un objet
+•PDO::query — Exécute une requête SQL, retourne un jeu de résultats en tant qu'objet
+PDOStatement
+•PDO::quote — Protège une chaîne pour l’utiliser dans une requête SQL PDO
+•PDO::rollBack — Annule une transaction
+•PDO::setAttribute — Configure un attribut PDO
+157
+PHP : PDO
+PDOStatement — La classe PDOStatement
+PDOStatement::bindColumn — Lie une colonne à une variable PHP
+PDOStatement::bindParam — Lie un paramètre à un nom de variable spécifique
+PDOStatement::bindValue — Associe une valeur à un paramètre
+PDOStatement::closeCursor — Ferme le curseur, permettant à la requête d’être de
+nouveau exécutée
+PDOStatement::columnCount — Retourne le nombre de colonnes dans le jeu de
+résultats
+PDOStatement::debugDumpParams — Détaille une commande préparée SQL
+PDOStatement::errorCode — Récupère les informations sur l’erreur associée lors
+de la dernière opération sur la requête
+PDOStatement::errorInfo — Récupère les informations sur l’erreur associée lors
+de la dernière opération sur la requête
+PDOStatement::execute — Exécute une requête préparée
+158
+PHP : PDO
+PDOStatement — La classe PDOStatement
+PDOStatement::fetch — Récupère la ligne suivante d’un jeu de résultats PDO
+PDOStatement::fetchAll — Retourne un tableau contenant toutes les lignes du jeu
+d’enregistrements
+PDOStatement::fetchColumn — Retourne une colonne depuis la ligne suivante
+d’un jeu de résultats
+PDOStatement::fetchObject — Récupère la prochaine ligne et la retourne en tant
+qu’objet
+PDOStatement::getAttribute — Récupère un attribut de requête
+PDOStatement::getColumnMeta — Retourne les métadonnées pour une colonne
+d’un jeu de résultats
+PDOStatement::nextRowset — Avance à la prochaine ligne de résultats d’un
+gestionnaire de lignes de résultats multiples
+PDOStatement::rowCount — Retourne le nombre de lignes affectées par le dernier
+appel à la fonction PDOStatement::execute()
+PDOStatement::setAttribute — Définit un attribut de requête
+PDOStatement::setFetchMode — Définit le mode de récupération par défaut pour
+cette requête
+159
+PHP : PDO
+PDOException::getMessage — Récupère le message de l'exception
+PDOException::getPrevious — Retourne l'exception précédente
+PDOException::getCode — Récupère le code de l'exception
+PDOException::getFile — Récupère le fichier dans lequel l'exception est
+survenue
+PDOException::getLine — Récupère la ligne dans laquelle l'exception
+est survenue
+PDOException::getTrace — Récupère la trace de la pile
+PDOException::getTraceAsString — Récupère la trace de la pile en tant que
+chaîne
+PDOException::__toString — Représente l'exception sous la forme
+d'une chaîne
+PDOException::__clone — Clone l'exception
+160
+PHP : PDO
+<?php
+$host = 'fia2';
+$login = 'rooot';
+$password = '';
+$database = 'etudiants';
+$conn = new PDO("mysql:host=$host;dbname=$database", $login, $password);
+?>
+161
+PHP : PDO
+<?php
+$host = 'fia2';
+$login = 'rooot';
+$password = '';
+$database = 'etudiants';
+try {
+$conn = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $login,
+$password);
+} catch (PDOException $e) {
+echo "Connexion échoué : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+162
+PHP : PDO
+163
+PHP : PDO créer une base de données
+<?php
+$host = 'fia2';
+$login = 'root';
+$password = '';
+try
+{
+$conn = new PDO
+("mysql:host=$host;charset=utf8", $login, $password);
+$sql = "create database etudiants_2";
+$conn->exec($sql);
+} catch (PDOException $e) {
+echo "Connexion échoué : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+164
+PHP : PDO créer une base de données
+<?php
+$host = 'fia2';
+$login = 'root';
+$password = '';
+try
+{
+$conn = new PDO
+("mysql:host=$host;charset=utf8", $login, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = "create database etudiants_2";
+$conn->exec($sql);
+echo 'Table créé avec succès';
+} catch (PDOException $e) {
+echo "Connexion échoué : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+165
+PHP : PDO
+166
+PHP : PDO créer une base de données
+<?php
+$host = 'fia2';
+$login = 'root';
+$password = '';
+try
+{
+$conn = new PDO
+("mysql:host=$host;charset=utf8", $login, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_ WARNING);
+$sql = "create database etudiants_2";
+$conn->exec($sql);
+echo 'Table créé avec succès';
+} catch (PDOException $e) {
+echo "Connexion échoué : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+167
+PHP : PDO
+168
+PHP : PDO créer une base de données
+<?php
+$host = 'fia2';
+$login = 'root';
+$password = '';
+try
+{
+$conn = new PDO
+("mysql:host=$host;charset=utf8", $login, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_ SILENT);
+$sql = "create database etudiants_2";
+$conn->exec($sql);
+echo 'Table créé avec succès';
+} catch (PDOException $e) {
+echo "Connexion échoué : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+169
+PHP : PDO créer une table
+<?php
+$host = 'fia2';
+$login = 'root';
+$password = '';
+try
+{
+$conn = new PDO
+("mysql:host=$host;charset=utf8", $login, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = "create table user (id INT(6) UNSIGNED AUTO_INCREMENT
+PRIMARY KEY,login VARCHAR(30) NOT NULL, password VARCHAR(30) NOT
+NULL)";
+$conn->exec($sql);
+echo 'Table créé avec succès';
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+170
+PHP : PDO créer une table
+<?php
+$host = 'fia2';
+$login = 'root';
+$password = '';
+try
+{
+$conn = new PDO
+("mysql:host=$host;charset=utf8", $login, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = "create table user (id INT(6) UNSIGNED AUTO_INCREMENT
+PRIMARY KEY,login VARCHAR(30) NOT NULL, password VARCHAR(30) NOT
+NULL)";
+$conn->exec($sql);
+echo 'Table créé avec succès';
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+171
+PHP : PDO
+172
+PHP : PDO créer une table
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try
+{
+$conn = new PDO
+("mysql:host=$host;dbname=$database;charset=utf8", $login,
+$password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = "create table user (id INT(6) UNSIGNED AUTO_INCREMENT
+PRIMARY KEY,login VARCHAR(30) NOT NULL, password VARCHAR(30) NOT
+NULL)";
+$conn->exec($sql);
+echo 'Table créé avec succès';
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+173
+PHP : PDO insertion d’un enregistrement
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try
+{
+$conn = new PDO
+("mysql:host=$host;dbname=$database;charset=utf8", $login,
+$password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql="insert into user (login, password) values('test','
+".md5
+('1234')."')";
+$conn->exec($sql);
+echo 'Insertion avec succès';
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+174
+PHP : PDO récupérer ID générer
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try
+{
+$conn = new PDO
+("mysql:host=$host;dbname=$database;charset=utf8", $login,
+$password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql="insert into user (login, password) values('test2','".md5
+('1234')."')";
+$conn->exec($sql);
+echo "Insertion avec l'ID :".$conn->lastInsertId
+('id');
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+175
+PHP : PDO insertion multiple
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try {
+$conn = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $login, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$conn->setAttribute(PDO::ATTR_PERSISTENT, TRUE);
+$conn->beginTransaction();
+$conn->exec("insert into user (login, password) values('test3','".md5('5678')."')");
+$conn->exec("insert into user (login, password) values('test4','".md5('1111')."')");
+$conn->exec("insert into user (login, password1) values('test5','".md5('0000')."')");
+$conn->commit();
+echo 'Insertion avec succès';
+} catch (PDOException $e) {
+try {
+echo "rollBack<br>";
+$conn->rollBack();
+} catch (PDOException $e) {
+echo "Exception rollBack : " . $e->getMessage();
+}
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+Attention : Tous les moteurs de
+stockage ne gèrent pas les
+transactions. (InnoDB est
+souvent conseillé si l'on
+souhaite utiliser des opérations
+assez évoluées telles que celleci)
+176
+PHP : PDO insertion multiple
+177
+PHP : PDO requête préparée
+• Déroulement d'une requête SQL
+1. Analyse
+2. Compilation
+3. Optimisation
+4. Exécution
+• Exécution répétée d'une requête : 1+2+3+4
+• Préparation d'une requête : 1+2+3
+• Exécution répétée d'une requête préparée : 4
+178
+PHP : PDO requête préparée
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try {
+$conn = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $login,
+$password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$statement=$conn->prepare("insert into user (login, password)
+values(:login,md5(:password))");
+$statement->bindParam
+(":login", $login_user);
+$statement->bindParam
+(":password", $password_user);
+$login_user="test3";
+$password_user="2468";
+$statement->execute();
+$login_user="test4";
+$password_user="2222";
+$statement->execute();
+echo 'Insertion avec succès';
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+179
+PHP : PDO requête préparée
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try {
+$conn = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $login, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$statement=$conn->prepare("insert into user (login, password) values(
+?,md5(
+?))");
+$statement->bindParam(1, $login_user, PDO::PARAM_STR);
+$statement->bindParam(2, $password_user, 2);
+$login_user="test5";
+$password_user="2468";
+$statement->execute();
+$login_user="test6";
+$password_user="2222";
+$statement->execute();
+echo 'Insertion avec succès';
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+180
+PHP : PDO requête préparée
+PDO::PARAM_BOOL
+(entier)
+Représente le type de données booléen.
+PDO::PARAM_NULL
+(entier)
+Représente le type de données NULL SQL.
+PDO::PARAM_INT
+(entier)
+Représente le type de données INTEGER SQL.
+PDO::PARAM_STR
+(entier)
+Représente les types de données CHAR, VARCHAR ou les autres types de
+données sous forme de chaîne de caractères SQL.
+PDO::PARAM_LOB
+(entier)
+Représente le type de données "objet large" SQL. 
+181
+PHP : PDO requête préparée
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try {
+$conn = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $login,
+$password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$login_user="test7";
+$password_user="2008";
+$statement=$conn->prepare("insert into user (login, password) values(
+?,md5(
+?))");
+$statement->bindValue(1, $login_user,PDO::PARAM_STR);
+$statement->bindValue(2, $password_user,PDO::PARAM_STR);
+$statement->execute();
+echo 'Insertion avec succès';
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+182
+PHP : PDO sélection
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try {
+$conn = new PDO
+("mysql:host=$host;dbname=$database;charset=utf8", $login,
+$password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$statement=$conn->prepare("select * from user");
+$statement->execute();
+$statement->setFetchMode(PDO::FETCH_ASSOC);
+echo "Column returned : ".$statement->columnCount()."<br>";
+echo "Row returned : ".$statement->rowCount();
+$lignes=$statement->fetchAll();
+var_dump($lignes);
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+183
+PHP : PDO sélection
+184
+PHP : PDO sélection
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try {
+$conn = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $login, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$login_user="test7";
+$password_user="2008";
+$statement=$conn->prepare("select * from user");
+$statement->execute();
+$statement->setFetchMode(PDO::FETCH_ASSOC);
+echo "Column returned : ".$statement->columnCount()."<br>";
+echo "Row returned : ".$statement->rowCount()."<br>";
+$lignes=$statement->fetchAll();
+foreach ($lignes as $row)
+{
+echo "Id : ".$row['id']." login : ".$row['login']." password : ".$row['password']."<br>";
+}
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+185
+PHP : PDO sélection
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try {
+$conn = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $login, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$login_user="test7";
+$password_user="2008";
+$statement=$conn->prepare("select * from user");
+$statement->execute();
+$statement->setFetchMode(PDO::FETCH_ASSOC);
+echo "Column returned : ".$statement->columnCount()."<br>";
+echo "Row returned : ".$statement->rowCount()."<br>";
+while($row=$statement->fetch())
+{
+echo "Id : ".$row['id']." login : ".$row['login']." password : ".$row['password']."<br>";
+}
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+186
+PHP : PDO sélection
+187
+PHP : PDO injection SQL
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try {
+$conn = new PDO
+("mysql:host=$host;dbname=$database;charset=utf8", $login,
+$password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$values['login']="test5";
+$values['password']="1234";
+$requete="select * from user where login ='".$values['login']."' and password =
+'".$values['password']."'";
+echo "Requête :<br>$requete<br>";
+$results=$conn->query($requete);
+if($utilisateur=$results->fetch())
+{
+echo "Bienvenue {$utilisateur['login']}
+";
+}
+else { echo "Erreur : Login/Password“; }
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+188
+PHP : PDO injection SQL
+189
+PHP : PDO injection SQL
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try {
+$conn = new PDO
+("mysql:host=$host;dbname=$database;charset=utf8", $login,
+$password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$values['login']="test5";
+$values['password']="1234?' OR true!='";
+$requete="select * from user where login ='".$values['login']."' and password =
+'".$values['password']."'";
+echo "Requête :<br>$requete<br>";
+$results=$conn->query($requete);
+if($utilisateur=$results->fetch())
+{ echo "Bienvenue {$utilisateur['login']}« ; }
+else { echo "Erreur : Login/Password“; }
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage(); var_dump($e->getTrace());
+}
+?>
+190
+PHP : PDO injection SQL
+191
+PHP : PDO protection contre injection SQL (1)
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try {
+$conn = new PDO
+("mysql:host=$host;dbname=$database;charset=utf8", $login,
+$password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$values['login']="test5";
+$values['password']="1234?' OR true!='";
+$requete="select * from user where login = ? and password = ?";
+$statement=$conn->prepare($requete);
+$statement->execute
+(array($values['login'],$values['password']));
+if($utilisateur=$statement->fetch())
+{ echo "Bienvenue {$utilisateur['login']}
+“; }
+else {
+echo "Erreur : Login/Password";
+}
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+192
+PHP : PDO protection contre injection SQL (2)
+<?php
+$host = 'fia2'; $login = 'root'; $password = ''; $database = 'etudiants_2';
+try {
+$conn = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $login, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$values['login']="test5";
+$values['password']="1234?' OR true!='";
+$login_user=$conn->quote($values['login']);
+$password_user=$conn->quote($values['password']);
+$requete="select * from user where login = $login_user and password = $password_user";
+echo "Requête :<br>$requete<br>";
+$results=$conn->query($requete);
+if($utilisateur=$results->fetch())
+{ echo "Bienvenue {$utilisateur['login']}« ; }
+else { echo "Erreur : Login/Password“; }
+} catch (PDOException $e) {
+echo "Exception : " . $e->getMessage();
+var_dump($e->getTrace());
+}
+?>
+193
+PHP : PDO protection contre injection SQL (2)
+194
+PHP : PDO protection contre injection SQL (3)
+string mysqli_real_escape_string ( mysqli $link , string $escapestr )
+Cette fonction est utilisée pour créer une chaîne SQL valide qui
+pourra être utilisée dans une requête SQL. La chaîne de caractères
+escapestr est encodée en une chaîne SQL échappée, en tenant
+compte du jeu de caractères courant de la connexion.
